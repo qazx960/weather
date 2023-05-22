@@ -1,0 +1,26 @@
+.weather {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 1px solid black; */
+  margin-bottom: 50px;
+}
+.weather__mainImg {
+  width: 200px;
+  background: #fff;
+}
+.temp {
+  display: flex;
+}
+#big {
+  font-size: 54px;
+  margin-right: 4px;
+}
+#small_C {
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+#small_F {
+  font-size: 16px;
+}
