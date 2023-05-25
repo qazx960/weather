@@ -5,9 +5,7 @@ function App() {
   return (
     <div>
       <div id="container">
-        <h1 style={{ textAlign: "center", margin: "50px" }}>
-          Find the weather forecast for a city
-        </h1>
+        <h1 style={{ textAlign: "center", margin: "50px" }}>Today's weather</h1>
         <Main />
       </div>
     </div>

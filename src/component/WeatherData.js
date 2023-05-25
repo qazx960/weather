@@ -1,35 +1,46 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import "./main.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import WeatherIcon from "./WeatherIcon";
 import "./weatherdata.css";
+import "./weatherIcon.css";
 
 export default function WeatherData() {
   const [location, setLocation] = useState("");
   const [result, setResult] = useState({});
-  const [img, setImg] = useState(null);
-  const [button, setButton] = useState("");
+  // const [img, setImg] = useState(null);
+  // const [button, setButton] = useState("");
+  // const [objData, setObjData] = useState([]);
+
+  // const weatherImages = [
+  //   { sunny: "../weather/day_clear.png" },
+  //   { partialCloudy: "../weather/day_partial_cloud.png" },
+  //   { rain: "../weather/day_rain.png" },
+  //   { rainThunder: "../weather/day_rain_thunder.png" },
+  //   { wind: "../weather/wind.png" },
+  //   { snow: "../weather/snow.png" },
+  //   { daySnow: "../weather/day_snow.png" },
+  // ];
 
   function KelvinToCelcius(k) {
     // Kelvin to Celsius
     return (k - 273.15).toFixed(0);
   }
 
-  const API_KEY = "351cedefa5d22f9dbfe224d72e6c0dd0";
+  const API_KEY = "c35f61a8744d2ba33d2db9d7c7f143a7";
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}`;
 
   const requestOptions = {
-    method: "POST",
+    method: "GET",
   };
 
-  const searchWeather = async (e) => {
+  const searchWeather = async () => {
     // if (e.key === "Enter") {
     await fetch(url, requestOptions)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setResult(data);
-        setImg("../weather/cloudy.png");
 
         setLocation("");
       })
@@ -45,10 +56,8 @@ export default function WeatherData() {
           id="search"
           placeholder="Search City"
           onChange={(e) => setLocation(e.target.value)}
-          value={location}
-          autoComplete="off"
         />
-        <button id="btn" onClick={searchWeather}>
+        <button id="btn" onClick={searchWeather} value={location}>
           Search
         </button>
         <div className="buttons">
@@ -67,11 +76,9 @@ export default function WeatherData() {
             <WeatherIcon
               location={`${result.name}, ${result.sys.country}`}
               temp={KelvinToCelcius(result.main.temp)}
-              image={img}
             />
           </div>
           <div className="boxes">
-            {/* {result.name}, {result.sys.country} */}
             <div className="itembox">
               {KelvinToCelcius(result.main.temp)} &deg;C
             </div>
