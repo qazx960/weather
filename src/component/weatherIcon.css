@@ -1,14 +1,23 @@
 .weather {
   display: flex;
   align-items: center;
-  justify-content: center;
-  /* border: 1px solid black; */
-  margin-bottom: 50px;
+  justify-content: space-evenly;
+
+  border-bottom: 1px solid #fff;
+  margin: 25px auto;
+
+  width: 60%;
+  height: 150px;
 }
-.weather__mainImg {
+.weather_img {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+/* .weather__mainImg {
   width: 200px;
   background: #fff;
-}
+} */
 .temp {
   display: flex;
 }

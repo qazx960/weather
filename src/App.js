@@ -3,9 +3,8 @@ import Main from "./component/Main";
 
 function App() {
   return (
-    <div>
-      <div id="container">
-        <h1 style={{ textAlign: "center", margin: "50px" }}>Today's weather</h1>
+    <div id="container__layout">
+      <div id="container__main">
         <Main />
       </div>
     </div>
